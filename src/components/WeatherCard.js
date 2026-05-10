@@ -1,15 +1,21 @@
 import React from 'react'
-import { useState } from 'react';
+import axios from 'axios';
+//import { useState } from 'react';
 export default function WeatherCard() {
     const [city, setCity] = React.useState('');
     const handleCityChange = (event) => {
         setCity(event.target.value);
-    }
-    const fetchweather = () => {
+    };
+   const fetchweather = async () => {
         try{
-            const response = await axios.get('https://api.openweathermap.org/data/2.5/weather?zip={zip code},{country code}&appid={API key})
-        }
-        catch(error){
+            const response = await axios.get(
+              `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=886238d787c0396510d72c2c7da4fbb2`);
+        console.log(response.data);
+          }
+          catch(error){
+            console.log(error);
+          }
+        };
   const handleClick = () => {
     fetchweather();
     // Handle weather fetching logic here
@@ -25,5 +31,5 @@ export default function WeatherCard() {
    <button onClick={handleClick}>Get Weather</button>
    
     </div>
-  )
+  );
 }
