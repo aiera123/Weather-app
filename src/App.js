@@ -7,6 +7,7 @@ function App() {
  <WeatherCard />
     </div>
   );
+  
 }
 
 export default App;
