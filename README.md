@@ -20,7 +20,7 @@ CSS3
 Axios
 OpenWeather API
 
-Installation 🚀
+
 
 Clone the repository:
 
@@ -37,8 +37,8 @@ npm start
 API Used 🌍
 
 OpenWeather API:
-
 OpenWeather
+
 
 Project Structure 📁
 src
@@ -47,7 +47,8 @@ src
  ┣ App.js
  ┣ App.css
  ┗ index.js
-Learning Outcomes 📚
+
+
 
 Through this project, I learned:
 
