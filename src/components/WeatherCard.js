@@ -10,7 +10,8 @@ export default function WeatherCard() {
    const fetchweather = async () => {
         try{
             const response = await axios.get(
-              `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=886238d787c0396510d72c2c7da4fbb2&units=metric`);
+  `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=metric`
+);
             setWeather(response.data);
           }
           catch(error){
