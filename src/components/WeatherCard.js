@@ -7,18 +7,29 @@ export default function WeatherCard() {
     const handleCityChange = (event) => {
         setCity(event.target.value);
     };
-   const fetchweather = async () => {
-        try{
-            const response = await axios.get(
-              `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=886238d787c0396510d72c2c7da4fbb2&units=metric`);
-            setWeather(response.data);
-          }
-          catch(error){
-            console.log(error);
-          }
-        };
-  const handleClick = () => {
+    const fetchweather = async () => {
+  try {
+
+    console.log("Fetching weather...");
+
+    const response = await axios.get(
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=ae6a406f80c093fb1a2afbd4e856a72d&units=metric`
+    );
+
+    console.log(response.data);
+
+    setWeather(response.data);
+
+  } catch (error) {
+
+    console.log("ERROR:");
+    console.log(error.response);
+
+  }
+};
+   const handleClick = () => {
     fetchweather();
+    //console.log(process.env.REACT_APP_WEATHER_API_KEY);
     // Handle weather fetching logic here
   };
 
