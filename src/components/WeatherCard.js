@@ -7,20 +7,42 @@ export default function WeatherCard() {
     const handleCityChange = (event) => {
         setCity(event.target.value);
     };
-   const fetchweather = async () => {
-        try{
-            const response = await axios.get(
-  `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=metric`
-);
-            setWeather(response.data);
-          }
-          catch(error){
-            console.log(error);
-          }
-        };
+    const fetchweather = async () => {
+  try {
+
+    console.log("API KEY:", process.env.REACT_APP_WEATHER_API_KEY);
+
+    const response = await axios.get(
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=metric`
+    );
+
+    console.log(response.data);
+
+    setWeather(response.data);
+
+  } catch (error) {
+
+    console.log("FULL ERROR:");
+    console.log(error.response);
+
+  }
+};
+//    const fetchweather = async () => {
+//         try{
+//             const response = await axios.get(
+//   `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=metric`
+// );
+
+//             setWeather(response.data);
+//           }
+//           catch(error){
+//             console.log(error);
+//             //console.log(process.env.REACT_APP_WEATHER_API_KEY);
+//           }
+//         };
   const handleClick = () => {
     fetchweather();
-    //console.log(process.env.REACT_APP_WEATHER_API_KEY);
+    console.log(process.env.REACT_APP_WEATHER_API_KEY);
     // Handle weather fetching logic here
   };
 
